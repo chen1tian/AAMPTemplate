@@ -34,6 +34,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAMPTpl.Application.Contrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAMPTpl.Application", "src\abp\AAMPTpl.Application\AAMPTpl.Application.csproj", "{B4E05595-8C3A-2FCA-7E86-BCA523BB7A9C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D0D99263-CEF2-4597-A6C5-EA1F8F07F98E}"
+	ProjectSection(SolutionItems) = preProject
+		doc\控件使用.md = doc\控件使用.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

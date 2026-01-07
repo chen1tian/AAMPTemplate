@@ -20,11 +20,13 @@
 			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Irihi.Ursa.Themes.Semi" />
+		<PackageReference Include="Semi.Avalonia" />
 
-		<PackageReference Include="Serilog.Extensions.Hosting"/>
-		<PackageReference Include="Serilog.Extensions.Logging"/>
-		<PackageReference Include="Serilog.Sinks.Async"/>
-		<PackageReference Include="Serilog.Sinks.File"/>
+		<PackageReference Include="Serilog.Extensions.Hosting" />
+		<PackageReference Include="Serilog.Extensions.Logging" />
+		<PackageReference Include="Serilog.Sinks.Async" />
+		<PackageReference Include="Serilog.Sinks.File" />
 	</ItemGroup>
 
 	<ItemGroup>

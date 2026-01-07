@@ -1,0 +1,9 @@
+{
+  "author": "yitian.chen",
+  "classifications": [ "aamp" ],
+  "identity": "aamp",
+  "name": "Avalonia Abp Multiplatform Solution",
+  "shortName": "aamp",
+  "sourceName": "AAMPTpl",
+  "preferNameDirectory": true 
+}
