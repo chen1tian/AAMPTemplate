@@ -55,8 +55,8 @@ AAMPTpl/                                    # 根目录
 
 ## 后端开发提示
 
-- 依赖注入: `doc\ABPRules\di.mdc`
-- 创建实体类: `doc\ABPRules\task-create-entity.mdc`
-- 创建Crud应用服务: `doc\ABPRules\task-create-crud-service.mdc`
-- 数据库迁移：`doc\ABPRules\task-ef.mdc`
-- 保存/读取配置: `doc\ABPRules\task-save-read-setting.mdc`
+- 依赖注入: [`doc\ABPRules\di.mdc`](./doc/ABPRules/di.mdc)
+- 创建实体类: [`doc\ABPRules\task-create-entity.mdc`](./doc/ABPRules/task-create-entity.mdc)
+- 创建Crud应用服务: [`doc\ABPRules\task-create-crud-service.mdc`](./doc/ABPRules/task-create-crud-service.mdc)
+- 数据库迁移：[`doc\ABPRules\task-ef.mdc`](./doc/ABPRules/task-ef.mdc)
+- 保存/读取配置: [`doc\ABPRules\task-save-read-setting.mdc`](./doc/ABPRules/task-save-read-setting.mdc)

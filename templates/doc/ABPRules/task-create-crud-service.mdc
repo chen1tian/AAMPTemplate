@@ -5,15 +5,13 @@ alwaysApply: false
 ---
 # Crud服务
 
-如果没有阅读`docs/类结构.md`，请先阅读`docs/类结构.md`。
-
 ## 领域层步骤
 
-如果没有建立实体类，那么请先根据`ai/增加实体类.md`建立实体类。
+如果没有建立实体类，那么请先根据`task-create-entity.mdc`建立实体类。
 
 ## EF Core层步骤
 
-如果没有增加实体类的DbSet属性，那么请先根据`ai/增加实体类.md`增加实体类的DbSet属性。
+如果没有增加实体类的DbSet属性，那么请先根据`task-ef.mdc`增加实体类的DbSet属性。
 
 ## 应用服务接口与DTO层步骤
 

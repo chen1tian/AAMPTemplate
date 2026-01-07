@@ -40,6 +40,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D0D99263-CEF
 		doc\控件使用.md = doc\控件使用.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ABPRules", "ABPRules", "{295F2713-2746-4DBA-868D-A9BAFA3CE048}"
+	ProjectSection(SolutionItems) = preProject
+		doc\ABPRules\di.mdc = doc\ABPRules\di.mdc
+		doc\ABPRules\task-create-crud-service.mdc = doc\ABPRules\task-create-crud-service.mdc
+		doc\ABPRules\task-create-entity.mdc = doc\ABPRules\task-create-entity.mdc
+		doc\ABPRules\task-ef.mdc = doc\ABPRules\task-ef.mdc
+		doc\ABPRules\task-save-read-setting.mdc = doc\ABPRules\task-save-read-setting.mdc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ai", "ai", "{D30330A6-B9E0-4095-A298-E472DA5DF765}"
+	ProjectSection(SolutionItems) = preProject
+		AGENTS.md = AGENTS.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +125,7 @@ Global
 		{1297B73E-FE18-8064-E302-1A5D88B9C0BB} = {4715B5E7-98F0-4D64-8CE5-E32134454F06}
 		{1CC24755-5F09-957A-E1B4-89C96D7FF83B} = {4715B5E7-98F0-4D64-8CE5-E32134454F06}
 		{B4E05595-8C3A-2FCA-7E86-BCA523BB7A9C} = {4715B5E7-98F0-4D64-8CE5-E32134454F06}
+		{295F2713-2746-4DBA-868D-A9BAFA3CE048} = {D0D99263-CEF2-4597-A6C5-EA1F8F07F98E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
