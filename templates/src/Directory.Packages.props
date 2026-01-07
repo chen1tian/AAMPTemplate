@@ -1,0 +1,64 @@
+﻿<Project>
+	<!-- https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management -->
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- Avalonia packages -->
+		<!-- Important: keep version in sync! -->
+		<PackageVersion Include="Avalonia" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Diagnostics" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Desktop" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.iOS" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Browser" Version="11.3.10" />
+		<PackageVersion Include="Avalonia.Android" Version="11.3.10" />
+
+		<PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+
+		<PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
+
+		<!--ABP Domain-->
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.11" />
+		<PackageVersion Include="Volo.Abp" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.Autofac" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.AutoMapper" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.Ddd.Domain" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.Localization" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.MultiTenancy" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.ObjectMapping" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.SettingManagement.Domain" Version="9.3.7" />
+
+		<!--ABP EntityFramework-->
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.11" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.11" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageVersion>
+		<PackageVersion Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="9.3.7" />
+
+		<!--ABP EntityFramework.MySql-->
+		<PackageVersion Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="9.3.7" />
+
+		<!--ABP AAMPTpl.Application.Contracts-->
+		<PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageVersion Include="Volo.Abp.Ddd.Application.Contracts" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.SettingManagement.Application.Contracts" Version="9.3.7" />
+
+		<!--ABP AAMPTpl.Application-->
+		<PackageVersion Include="AutoMapper" Version="14.0.0" />
+		<PackageVersion Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+		<PackageVersion Include="Volo.Abp.Http.Client" Version="9.3.7" />
+		<PackageVersion Include="Volo.Abp.SettingManagement.Application" Version="9.3.7" />
+
+		<!-- Serilog packages -->
+		<PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+		<PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.0" />
+		<PackageVersion Include="Serilog.Sinks.Async" Version="1.5.0" />
+		<PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
+	</ItemGroup>
+</Project>

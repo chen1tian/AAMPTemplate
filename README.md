@@ -1,20 +1,19 @@
-#简介
-TODO: 简要介绍你的项目。通过此节说明此项目的目标或动机。
+﻿# AAMP解决方案模板
 
-#入门
-TODO: 指导用户在自己的系统上设置和运行代码。在本节中，可讨论:
-1.	安装过程
-2.	软件依赖项
-3.	最新发布
-4.	API 参考
+## 说明
+AAMP是Avalonia Abp Multiplatform的缩写，是一个基于Avalonia UI框架和ABP框架的跨平台模块化应用程序开发平台。该解决方案模板旨在帮助开发者快速搭建基于AAMP的应用程序。
 
-#生成与测试
-TODO: 说明并展示如何生成代码和运行测试。
+## 支持的平台
+- windows
+- macOS
+- iOS
+- Android
+- WebAssembly
 
-#参与
-TODO: 说明其他用户和开发人员可如何帮助改善代码。
-
-如需深入了解如何创建优秀的自述文件，请参阅以下[指南](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops)。还可从以下自述文件中寻求灵感:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## 安装使用方法
+1. 克隆或下载此解决方案模板到本地。
+2. 双击`安装模板.bat`, 模板会自动安装到你的开发环境中。
+3. 需要新建项目时，在命令行中运行以下命令：
+   ```
+   dotnet new aamp -n YourProjectName
+   ```

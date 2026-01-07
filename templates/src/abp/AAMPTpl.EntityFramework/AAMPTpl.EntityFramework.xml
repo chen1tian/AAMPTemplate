@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AAMPTpl.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="P:AAMPTpl.EntityFramework.AAMPTplDbContext.AbpSettings">
+            <summary>
+            App设置
+            </summary>
+        </member>
+        <member name="P:AAMPTpl.EntityFramework.AAMPTplDbContext.AbpSettingDefinitions">
+            <summary>
+            App设置定义
+            </summary>
+        </member>
+        <member name="T:AAMPTpl.EntityFramework.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:AAMPTpl.EntityFramework.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AAMPTpl.EntityFramework.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AAMPTpl.EntityFramework.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

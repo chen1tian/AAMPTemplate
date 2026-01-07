@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>AAMPTpl.Application.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>AAMPTpl.Application.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper"/>
+		<PackageReference Include="Microsoft.AspNet.WebApi.Core"/>
+		<PackageReference Include="Volo.Abp.Http.Client"/>
+		<PackageReference Include="Volo.Abp.SettingManagement.Application"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AAMPTpl.Application.Contracts\AAMPTpl.Application.Contracts.csproj" />
+		<ProjectReference Include="..\AAMPTpl.Domain\AAMPTpl.Domain.csproj" />
+		<ProjectReference Include="..\AAMPTpl.EntityFramework\AAMPTpl.EntityFramework.csproj" />
+	</ItemGroup>
+
+</Project>
