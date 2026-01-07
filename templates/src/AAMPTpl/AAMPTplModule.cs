@@ -1,4 +1,6 @@
 ﻿using AAMPTpl.Application;
+using AAMPTpl.Application.Contracts;
+using AAMPTpl.Domain;
 using AAMPTpl.EntityFramework;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,13 @@ using Volo.Abp.Modularity;
 
 namespace AAMPTpl
 {
+    [
+        DependsOn(typeof(AAMPTplDomainMobule)),
+        DependsOn(typeof(AAMPTplEntityFrameworkModule)),
+        DependsOn(typeof(AAMPTplApplicationContractsModule)),
+        DependsOn(typeof(AAMPTplApplicationModule)),
+        DependsOn(typeof(AbpAutoMapperModule)),
+    ]
     public class AAMPTplModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
