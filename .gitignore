@@ -1,0 +1,19 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/src/DCSMaster.WpfApp/bin
+/src/DCSMaster.WpfApp/obj
+/src/DCSMaster.Application/bin
+/src/DCSMaster.Application/obj
+/src/DCSMaster.Application.Contracts/bin
+/src/DCSMaster.Application.Contracts/obj
+/src/DCSMaster.Domain/bin
+/src/DCSMaster.Domain/obj
+/test/DCSMaster.Domain.Tests/bin
+/test/DCSMaster.Domain.Tests/obj
+/src/DCSMaster.EntityFramework/bin
+/src/DCSMaster.EntityFramework/obj
+/src/DCSMaster.WpfApp/Logs
+/obj
