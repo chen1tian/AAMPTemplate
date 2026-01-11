@@ -13,7 +13,7 @@ alwaysApply: false
 4. 在实体类文件夹中，建立实体类文件，文件名称使用实体类名称。
 5. 根据需求，为实体类添加属性。
 6. 实体类继承自`AggregateRoot<主键>`类，主键未指定的话，使用GUID做主键。父类需要增加引用`using Volo.Abp.Domain.Entities;`。
-7. 实体类默认实现`IHasCreationTime`接口。实现代码:
+7. 实体类默认实现`IHasCreationTime`接口，接口命名空间`using Volo.Abp.Auditing;`。实现代码:
    ```csharp
    /// <summary>
    /// 创建时间
