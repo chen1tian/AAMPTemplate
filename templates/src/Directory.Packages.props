@@ -6,18 +6,18 @@
   <ItemGroup>
     <!-- Avalonia packages -->
     <!-- Important: keep version in sync! -->
-    <PackageVersion Include="Avalonia" Version="11.3.12" />    
-    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Desktop" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.iOS" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Browser" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Android" Version="11.3.12" />
-    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />    
-    <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
+    <PackageVersion Include="Avalonia" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Desktop" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.iOS" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Browser" Version="11.3.13" />
+    <PackageVersion Include="Avalonia.Android" Version="11.3.13" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.2" />
     <!--ABP Domain-->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.5" />
     <PackageVersion Include="Volo.Abp" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.Autofac" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.AutoMapper" Version="10.1.1" />
@@ -27,9 +27,9 @@
     <PackageVersion Include="Volo.Abp.ObjectMapping" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.SettingManagement.Domain" Version="10.1.1" />
     <!--ABP EntityFramework-->
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.2">
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
@@ -39,18 +39,18 @@
     <!--ABP EntityFramework.MySql-->
     <PackageVersion Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="10.1.1" />
     <!--ABP AAMPTpl.Application.Contracts-->
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="Volo.Abp.Ddd.Application.Contracts" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.SettingManagement.Application.Contracts" Version="10.1.1" />
     <!--ABP AAMPTpl.Application-->
-    <PackageVersion Include="AutoMapper" Version="14.0.0" />
+    <PackageVersion Include="AutoMapper" Version="16.1.1" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
     <PackageVersion Include="Volo.Abp.Http.Client" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.SettingManagement.Application" Version="10.1.1" />
     <!-- Serilog packages -->
-    <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Sinks.Async" Version="1.5.0" />
-    <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageVersion Include="Serilog.Extensions.Hosting" Version="10.0.0" />
+    <PackageVersion Include="Serilog.Extensions.Logging" Version="10.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Async" Version="2.1.0" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0" />
   </ItemGroup>
 </Project>
