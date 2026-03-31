@@ -45,11 +45,13 @@ namespace AAMPTpl
             services.AddAutoMapperObjectMapper<AAMPTplModule>();
             services.AddAutoMapperObjectMapper<AAMPTplApplicationModule>();
 
+            var logFactory = new Serilog.Extensions.Logging.SerilogLoggerFactory();
+
             AutoMapper.IConfigurationProvider config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<AAMPTplAutoMapProfile>();
                 cfg.AddProfile<AAMPTplApplicationAutoMapProfile>();
-            });
+            }, logFactory);
             services.AddSingleton(config);
             services.AddScoped<IMapper, Mapper>();
 
