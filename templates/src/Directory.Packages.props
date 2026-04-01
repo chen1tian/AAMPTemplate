@@ -31,10 +31,11 @@
     <!--ABP EntityFramework-->
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.5" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.5">
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.5">		
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
+	<PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5" />
     <PackageVersion Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="10.1.1" />
     <PackageVersion Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="10.1.1" />
