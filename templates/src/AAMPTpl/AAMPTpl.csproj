@@ -11,8 +11,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Bold.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-ExtraLight.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Heavy.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Light.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Medium.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Normal.otf" />
+	  <None Remove="Resources\Fonts\SourceHanSansSC-Regular.otf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Bold.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-ExtraLight.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Heavy.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Light.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Medium.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Normal.otf" />
+	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Regular.otf" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Avalonia" />
 		<PackageReference Include="Avalonia.Themes.Fluent" />
+		<PackageReference Include="Material.Avalonia" />
 		<PackageReference Include="Avalonia.Fonts.Inter" />
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<PackageReference Include="Avalonia.Diagnostics">

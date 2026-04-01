@@ -1,8 +1,9 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AAMPTpl.ViewModels"
+			 xmlns:controls="using:Material.Styles.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AAMPTpl.Views.MainView"
              x:DataType="vm:MainViewModel">
@@ -12,5 +13,86 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <Grid RowDefinitions="Auto, *">
+
+		<!-- 顶部工具栏 -->
+		<Border Grid.Row="0"									
+				Height="40">			
+			<DockPanel Margin="16,0">
+				<TextBlock Text="跨平台应用系统"
+						   Theme="{StaticResource MaterialTheme}"
+						   FontSize="18" FontWeight="Medium"
+						   VerticalAlignment="Center" />
+			</DockPanel>
+		</Border>
+
+		<!-- 主体区域 -->
+		<Grid Grid.Row="1" ColumnDefinitions="Auto, *">
+
+			<!-- 左侧导航菜单 -->
+			<Border Grid.Column="0"
+					Width="{Binding MenuWidth}"
+					Background="{DynamicResource MaterialCardBackgroundBrush}"
+					BorderBrush="{DynamicResource MaterialDividerBrush}"
+					
+					BorderThickness="0,0,1,0">
+				<Grid RowDefinitions="*, Auto">
+					<ListBox Grid.Row="0"
+							 ItemsSource="{Binding MenuItems}"
+							 SelectedItem="{Binding SelectedMenuItem}"
+							 Background="Transparent"									 
+							 Margin="4,8">
+						<ListBox.ItemTemplate>
+							<DataTemplate x:DataType="vm:NavMenuItem">
+								<StackPanel Orientation="Horizontal" Spacing="14" Margin="0,4">
+									<PathIcon x:CompileBindings="False"
+											  Data="{Binding Icon}"
+											  Width="22" Height="22"
+											  VerticalAlignment="Center" />
+									<TextBlock Text="{Binding Title}"	
+											   FontSize="15"
+											   x:CompileBindings="False"
+											   IsVisible="{Binding $parent[UserControl].DataContext.IsMenuTextVisible}"
+											   VerticalAlignment="Center" />
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+
+						<ListBox.ItemContainerTheme>
+							<ControlTheme TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+								<Setter Property="Padding" Value="6,10" />
+								<Setter Property="Margin" Value="8,2" />
+								<Setter Property="CornerRadius" Value="8" />
+							</ControlTheme>
+						</ListBox.ItemContainerTheme>
+					</ListBox>
+
+					<!-- 收起/展开菜单按钮 -->
+					<StackPanel Grid.Row="1" Margin="0,4,0,8">
+						<Rectangle Height="1"
+								   Fill="{DynamicResource MaterialDividerBrush}"
+								   Margin="8,0" />
+						<Button Command="{Binding ToggleMenuCommand}"
+								Theme="{StaticResource MaterialOutlineButton}"
+								HorizontalAlignment="Center"
+								Background="Transparent"
+								BorderThickness="0"
+								Padding="8"
+								Margin="0,4,0,0">
+							<PathIcon x:CompileBindings="False"
+									  Data="{Binding ToggleMenuIcon}"
+									  Width="20" Height="20" />
+						</Button>
+					</StackPanel>
+				</Grid>
+			</Border>
+
+			<!-- 右侧内容区 -->
+			<controls:Card Grid.Column="1" Margin="0 0 5 5">
+				<ContentControl
+								Content="{Binding CurrentPage}"
+								Margin="0" />
+			</controls:Card>
+		</Grid>
+	</Grid>
 </UserControl>

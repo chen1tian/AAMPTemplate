@@ -13,10 +13,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper"/>
-		<PackageReference Include="Microsoft.AspNet.WebApi.Core"/>
-		<PackageReference Include="Volo.Abp.Http.Client"/>
-		<PackageReference Include="Volo.Abp.SettingManagement.Application"/>
+		<PackageReference Include="AutoMapper" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Core" />
+		<PackageReference Include="Scriban" />
+		<PackageReference Include="Volo.Abp.Http.Client" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Application" />
 	</ItemGroup>
 
 	<ItemGroup>
