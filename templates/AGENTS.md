@@ -53,6 +53,8 @@ AAMPTpl/                                    # 根目录
 
 ## 前端开发提示
 
+- Material Icons 图标库用法: [`doc\material-icons.mdc`](./doc/material-icons.mdc)
+
 ## 后端开发提示
 
 - 依赖注入: [`doc\ABPRules\di.mdc`](./doc/ABPRules/di.mdc)
