@@ -10,7 +10,7 @@ namespace AAMPTpl.EntityFramework.MiddleWares
     public static class EfMigrateMiddleWare
     {
         /// <summary>
-        /// 自动合并数据库
+        /// 自动迁移数据库
         /// </summary>
         /// <param name="app"></param>
         /// <param name="db"></param>
@@ -20,7 +20,7 @@ namespace AAMPTpl.EntityFramework.MiddleWares
         }
 
         /// <summary>
-        /// 自动合并数据库
+        /// 自动迁移数据库
         /// </summary>
         /// <typeparam name="TDbContext"></typeparam>
         /// <param name="app"></param>
@@ -31,6 +31,21 @@ namespace AAMPTpl.EntityFramework.MiddleWares
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<TDbContext>();
                 services.UseAutoMigration(dbContext);
+            }
+        }
+
+        /// <summary>
+        /// 自动迁移数据库
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <param name="servicesProvider"></param>
+        public static void UseAutoMigration<TDbContext>(this IServiceProvider servicesProvider)
+            where TDbContext : DbContext
+        {
+            using (var serviceScope = servicesProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var dbContext = servicesProvider.GetRequiredService<TDbContext>();
+                MigrationDb(dbContext);
             }
         }
 

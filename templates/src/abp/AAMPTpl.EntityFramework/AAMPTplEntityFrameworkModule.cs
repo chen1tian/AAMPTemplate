@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Autofac;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace AAMPTpl.EntityFramework
         typeof(AAMPTplDomainMobule),
         typeof(AbpMultiTenancyModule),
         typeof(AbpEntityFrameworkCoreModule),
+        typeof(AbpEntityFrameworkCoreSqliteModule),
         typeof(AbpAutofacModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule)
         )]

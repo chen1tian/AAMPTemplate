@@ -16,17 +16,24 @@
         </member>
         <member name="M:AAMPTpl.EntityFramework.MiddleWares.EfMigrateMiddleWare.UseAutoMigration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
-            自动合并数据库
+            自动迁移数据库
             </summary>
             <param name="app"></param>
             <param name="db"></param>
         </member>
         <member name="M:AAMPTpl.EntityFramework.MiddleWares.EfMigrateMiddleWare.UseAutoMigration``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            自动合并数据库
+            自动迁移数据库
             </summary>
             <typeparam name="TDbContext"></typeparam>
             <param name="app"></param>
+        </member>
+        <member name="M:AAMPTpl.EntityFramework.MiddleWares.EfMigrateMiddleWare.UseAutoMigration``1(System.IServiceProvider)">
+            <summary>
+            自动迁移数据库
+            </summary>
+            <typeparam name="TDbContext"></typeparam>
+            <param name="servicesProvider"></param>
         </member>
         <member name="T:AAMPTpl.EntityFramework.Migrations.Init">
             <inheritdoc />

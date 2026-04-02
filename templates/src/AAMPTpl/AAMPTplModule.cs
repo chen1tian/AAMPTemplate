@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 
@@ -29,8 +30,9 @@ namespace AAMPTpl
             var services = context.Services;
 
             // 配置数据库
+            services.AddAbpDbContext<AAMPTplDbContext>();
             context.Services.AddDbContext<AAMPTplDbContext>();
-
+            
             // 配置AutoMapper
             ConfigureAutoMap(context.Services);
         }
@@ -60,6 +62,18 @@ namespace AAMPTpl
                 options.AddMaps<AAMPTplModule>(validate: true);
                 options.AddMaps<AAMPTplApplicationModule>(validate: true);
             });
+        }
+
+        /// <summary>
+        /// 应用程序初始化完毕后
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public override Task OnPostApplicationInitializationAsync(ApplicationInitializationContext context)
+        {
+            // 自动迁移数据库
+            context.ServiceProvider.UseAutoMigration<CFUSV2DbContext>();
+            return base.OnPostApplicationInitializationAsync(context);
         }
     }
 }
