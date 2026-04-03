@@ -24,7 +24,24 @@ public class ViewLocator : IDataTemplate
 
         if (type != null)
         {
-            return (Control)Activator.CreateInstance(type)!;
+            var loadingText = new TextBlock
+            {
+                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+                Text = "ÔØÈëÖÐ..."
+            };
+            var container = new ContentControl
+            {
+                Content = loadingText
+            };
+
+            Avalonia.Threading.Dispatcher.UIThread.Post(() =>
+            {
+                var instance = (Control)Activator.CreateInstance(type)!;
+                container.Content = instance;
+            }, Avalonia.Threading.DispatcherPriority.Background);
+
+            return container;
         }
 
         return new TextBlock { Text = "Not Found: " + name };

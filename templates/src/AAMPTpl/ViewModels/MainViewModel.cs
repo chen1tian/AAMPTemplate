@@ -27,6 +27,9 @@ public partial class MainViewModel : ViewModelBase
     private NavMenuItem _selectedMenuItem;
 
     [ObservableProperty]
+    private bool _navDrawerSwitch;
+
+    [ObservableProperty]
     private bool _isMenuCollapsed;
 
     partial void OnIsMenuCollapsedChanged(bool value)

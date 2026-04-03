@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AAMPTpl.ViewModels"
 			 xmlns:controls="using:Material.Styles.Controls"
+			 xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AAMPTpl.Views.MainView"
              x:DataType="vm:MainViewModel">
@@ -13,34 +15,19 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <Grid RowDefinitions="Auto, *">
-
-		<!-- 顶部工具栏 -->
-		<Border Grid.Row="0"									
-				Height="40">			
-			<DockPanel Margin="16,0">
-				<TextBlock Text="跨平台应用系统"
-						   Theme="{StaticResource MaterialTheme}"
-						   FontSize="18" FontWeight="Medium"
-						   VerticalAlignment="Center" />
-			</DockPanel>
-		</Border>
-
-		<!-- 主体区域 -->
-		<Grid Grid.Row="1" ColumnDefinitions="Auto, *">
-
-			<!-- 左侧导航菜单 -->
-			<Border Grid.Column="0"
-					Width="{Binding MenuWidth}"
-					Background="{DynamicResource MaterialCardBackgroundBrush}"
-					BorderBrush="{DynamicResource MaterialDividerBrush}"
-					
-					BorderThickness="0,0,1,0">
-				<Grid RowDefinitions="*, Auto">
+  <dialogHostAvalonia:DialogHost Identifier="MainDialogHost">
+		<controls:NavigationDrawer
+		Name="LeftDrawer"
+		LeftDrawerOpened="{Binding NavDrawerSwitch, Mode=TwoWay}"
+		LeftDrawerWidth="150"
+		>
+			<!--左侧菜单-->
+			<controls:NavigationDrawer.LeftDrawerContent>
+				<ScrollViewer>
 					<ListBox Grid.Row="0"
 							 ItemsSource="{Binding MenuItems}"
 							 SelectedItem="{Binding SelectedMenuItem}"
-							 Background="Transparent"									 
+							 Background="Transparent"
 							 Margin="4,8">
 						<ListBox.ItemTemplate>
 							<DataTemplate x:DataType="vm:NavMenuItem">
@@ -49,7 +36,7 @@
 											  Data="{Binding Icon}"
 											  Width="22" Height="22"
 											  VerticalAlignment="Center" />
-									<TextBlock Text="{Binding Title}"	
+									<TextBlock Text="{Binding Title}"
 											   FontSize="15"
 											   x:CompileBindings="False"
 											   IsVisible="{Binding $parent[UserControl].DataContext.IsMenuTextVisible}"
@@ -66,33 +53,49 @@
 							</ControlTheme>
 						</ListBox.ItemContainerTheme>
 					</ListBox>
+				</ScrollViewer>
+			</controls:NavigationDrawer.LeftDrawerContent>
 
-					<!-- 收起/展开菜单按钮 -->
-					<StackPanel Grid.Row="1" Margin="0,4,0,8">
-						<Rectangle Height="1"
-								   Fill="{DynamicResource MaterialDividerBrush}"
-								   Margin="8,0" />
-						<Button Command="{Binding ToggleMenuCommand}"
-								Theme="{StaticResource MaterialOutlineButton}"
-								HorizontalAlignment="Center"
-								Background="Transparent"
-								BorderThickness="0"
-								Padding="8"
-								Margin="0,4,0,0">
-							<PathIcon x:CompileBindings="False"
-									  Data="{Binding ToggleMenuIcon}"
-									  Width="20" Height="20" />
-						</Button>
-					</StackPanel>
-				</Grid>
-			</Border>
+			<!--内容区-->
+			<DockPanel LastChildFill="true">
+				<!--顶部层-->
+				<controls:ColorZone Name="PART_AppBarContainer" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+									DockPanel.Dock="Top"
+									Height="56" Mode="PrimaryMid" ZIndex="1">
+					<Grid Margin="16">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="24" />
+							<ColumnDefinition Width="32" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="32" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<ToggleButton Name="NavDrawerSwitch"
+									  Theme="{StaticResource MaterialFlatButton}"
+									  Width="32" Height="32" Padding="4"
+									  IsChecked="{Binding NavDrawerSwitch, Mode=TwoWay}">
+							<icons:MaterialIcon Kind="Menu" Width="24" Height="24" />
+						</ToggleButton>
+						<!--标题-->
+						<TextBlock Grid.Column="2" Classes="Headline6" Text="AAMPTp"
+								   VerticalAlignment="Center" />
 
-			<!-- 右侧内容区 -->
-			<controls:Card Grid.Column="1" Margin="0 0 5 5">
+						<!--操作菜单-->
+						<Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
+							<MenuItem Height="32" Width="32" Header="">
+								<MenuItem Header="Action 1" />
+								<MenuItem Header="Action 2" />
+								<MenuItem Header="Action 3" />
+							</MenuItem>
+						</Menu>
+					</Grid>
+				</controls:ColorZone>
+				<!--主要内容区-->
 				<ContentControl
-								Content="{Binding CurrentPage}"
-								Margin="0" />
-			</controls:Card>
-		</Grid>
-	</Grid>
+				Content="{Binding CurrentPage}"
+				Margin="0" />
+			</DockPanel>
+
+		</controls:NavigationDrawer>
+	</dialogHostAvalonia:DialogHost>
 </UserControl>
