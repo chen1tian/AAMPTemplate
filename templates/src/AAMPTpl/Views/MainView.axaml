@@ -15,7 +15,7 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <dialogHostAvalonia:DialogHost Identifier="MainDialogHost">
+  <dialogHostAvalonia:DialogHost Identifier="MainDialogHost" DisableOpeningAnimation="True">
 		<controls:NavigationDrawer
 		Name="LeftDrawer"
 		LeftDrawerOpened="{Binding NavDrawerSwitch, Mode=TwoWay}"
