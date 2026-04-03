@@ -1,4 +1,6 @@
-﻿using AAMPTpl.ViewModels;
+﻿using AAMPTpl.EntityFramework;
+using AAMPTpl.EntityFramework.MiddleWares;
+using AAMPTpl.ViewModels;
 using AAMPTpl.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -6,9 +8,15 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Logging;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Volo.Abp;
 
 namespace AAMPTpl;
@@ -35,11 +43,39 @@ public partial class App : Avalonia.Application
                 .WriteTo.Async(c => c.File($"Logs/logs_{DateTime.Now.ToString("yyyyMMdd")}.txt"))
                 .CreateLogger();
 
-        _abpApplication = await AbpApplicationFactory.CreateAsync<AAMPTplModule>(options =>
+        try
         {
-            options.UseAutofac();
-        });
-        await _abpApplication.InitializeAsync();
+            // 根据平台确定可写的数据库目录，并在 ABP 初始化前注入连接字符串
+            var dbDir = GetDatabaseDirectory();
+            if (!Directory.Exists(dbDir))
+                Directory.CreateDirectory(dbDir);
+            var dbConnStr = $"Data Source={Path.Combine(dbDir, "CFUSV2.db")}";
+
+            _abpApplication = await AbpApplicationFactory.CreateAsync<AAMPTplModule>(options =>
+            {
+                options.UseAutofac();
+                options.Services.ReplaceConfiguration(
+                    new ConfigurationBuilder()
+                        .SetBasePath(AppContext.BaseDirectory)
+                        .AddJsonFile("appsettings.json", optional: true)
+                        .AddInMemoryCollection(new Dictionary<string, string?>
+                        {
+                            ["ConnectionStrings:Default"] = dbConnStr
+                        })
+                        .Build()
+                );
+            });
+            await _abpApplication.InitializeAsync();
+            var serviceProvider = _abpApplication.ServiceProvider;
+
+            // 自动迁移数据库
+            serviceProvider.UseAutoMigration<AAMPTplDbContext>();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "应用初始化失败");
+            throw;
+        }
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
@@ -58,7 +94,6 @@ public partial class App : Avalonia.Application
                 DataContext = new MainViewModel()
             };
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 
@@ -73,5 +108,13 @@ public partial class App : Avalonia.Application
         {
             BindingPlugins.DataValidators.Remove(plugin);
         }
+    }
+
+    private static string GetDatabaseDirectory()
+    {
+        // Android 上 SpecialFolder.Personal 对应应用私有可写目录
+        if (OperatingSystem.IsAndroid())
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "db");
+        return Path.Combine(AppContext.BaseDirectory, "db");
     }
 }

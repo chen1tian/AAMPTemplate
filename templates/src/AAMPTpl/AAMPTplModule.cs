@@ -63,17 +63,5 @@ namespace AAMPTpl
                 options.AddMaps<AAMPTplApplicationModule>(validate: true);
             });
         }
-
-        /// <summary>
-        /// 应用程序初始化完毕后
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public override Task OnPostApplicationInitializationAsync(ApplicationInitializationContext context)
-        {
-            // 自动迁移数据库
-            context.ServiceProvider.UseAutoMigration<CFUSV2DbContext>();
-            return base.OnPostApplicationInitializationAsync(context);
-        }
     }
 }
