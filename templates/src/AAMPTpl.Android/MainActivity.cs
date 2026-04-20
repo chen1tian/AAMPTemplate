@@ -1,7 +1,10 @@
 ﻿using Android.App;
 using Android.Content.PM;
+using Android.Runtime;
 using Avalonia;
 using Avalonia.Android;
+using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AAMPTpl.Android;
 
@@ -18,9 +21,10 @@ public class MainActivity : AvaloniaMainActivity
 [Application]
 public class AndroidApp : AvaloniaAndroidApplication<App>
 {
-    protected AndroidApp(System.IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer)
+    public AndroidApp(IntPtr javaReference, JniHandleOwnership transfer)
         : base(javaReference, transfer)
     {
+        
     }
 
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)

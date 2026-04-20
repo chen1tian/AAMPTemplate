@@ -22,6 +22,10 @@ public partial class App : Avalonia.Application
 {
     private IAbpApplicationWithInternalServiceProvider? _abpApplication;
 
+    public static IServiceProvider ServiceProvider { get; private set; } = null!;
+
+    public static Action<IServiceCollection>? ConfigurePlatformServices { get; set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -61,12 +65,15 @@ public partial class App : Avalonia.Application
                         })
                         .Build()
                 );
+
+                // 注册平台特定服务
+                ConfigurePlatformServices?.Invoke(options.Services);
             });
             await _abpApplication.InitializeAsync();
-            var serviceProvider = _abpApplication.ServiceProvider;
+            ServiceProvider = _abpApplication.ServiceProvider;
 
             // 自动迁移数据库
-            serviceProvider.UseAutoMigration<AAMPTplDbContext>();
+            ServiceProvider.UseAutoMigration<AAMPTplDbContext>();
         }
         catch (Exception ex)
         {
