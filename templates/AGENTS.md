@@ -51,9 +51,14 @@ AAMPTpl/                                    # 根目录
         └── AAMPTpl.EntityFramework.SqlServer/  # SQL Server 数据库支持
 ```
 
+## 文件架构规范
+- MVVM View文件: MVVM View文件统一放在 `src\AAMPTpl\Views` 目录下，如果模块包含多个View文件，那么建立模块文件夹，将文件统一存放在文件夹中。例如：采集功能视图为CollectView，此文件放在View目录下，因为它是功能根文件，视图上还包括采集计划(CollectPlan)，采集计划列表项(CollectPlanItem)等等文件，那么新建目录`Collects`(复数形式)，将CollectPlan、CollectPlanItem放在此目录下
+- MVVM ViewModel文件：ViewModel文件统一存放在`src\AAMPTpl\ViewModels`目录下，与View文件路径一一对应
+
 ## 前端开发提示
 
 - Material Icons 图标库用法: [`doc\material-icons.mdc`](./doc/material-icons.mdc)
+- 控件优先使用Material Avalonia库: [`doc\MaterialAvalonia.mdc`](./doc/MaterialAvalonia.mdc)
 
 ## 后端开发提示
 
