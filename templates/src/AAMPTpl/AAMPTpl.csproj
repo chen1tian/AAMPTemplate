@@ -11,12 +11,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="appsettings.json" />
 	  <None Remove="Resources\Fonts\SourceHanSansSC-Medium.otf" />
 	  <None Remove="Resources\Fonts\SourceHanSansSC-Normal.otf" />
 	  <None Remove="Resources\Fonts\SourceHanSansSC-Regular.otf" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AvaloniaResource Include="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </AvaloniaResource>
 	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Medium.otf" />
 	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Normal.otf" />
 	  <AvaloniaResource Include="Resources\Fonts\SourceHanSansSC-Regular.otf" />
@@ -49,11 +53,5 @@
 		<ProjectReference Include="..\abp\AAMPTpl.EntityFramework.MySql\AAMPTpl.EntityFramework.MySql.csproj" />
 		<ProjectReference Include="..\abp\AAMPTpl.EntityFramework.SqlServer\AAMPTpl.EntityFramework.SqlServer.csproj" />
 		<ProjectReference Include="..\abp\AAMPTpl.EntityFramework\AAMPTpl.EntityFramework.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="appsettings.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 </Project>

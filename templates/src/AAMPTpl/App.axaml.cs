@@ -6,6 +6,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Logging;
 using Avalonia.Markup.Xaml;
+using Avalonia.Platform;
 using Avalonia.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,20 +51,13 @@ public partial class App : Avalonia.Application
             var dbDir = GetDatabaseDirectory();
             if (!Directory.Exists(dbDir))
                 Directory.CreateDirectory(dbDir);
-            var dbConnStr = $"Data Source={Path.Combine(dbDir, "CFUSV2.db")}";
+            var dbConnStr = $"Data Source={Path.Combine(dbDir, "AAMPTpl.db")}";
 
             _abpApplication = await AbpApplicationFactory.CreateAsync<AAMPTplModule>(options =>
             {
                 options.UseAutofac();
                 options.Services.ReplaceConfiguration(
-                    new ConfigurationBuilder()
-                        .SetBasePath(AppContext.BaseDirectory)
-                        .AddJsonFile("appsettings.json", optional: true)
-                        .AddInMemoryCollection(new Dictionary<string, string?>
-                        {
-                            ["ConnectionStrings:Default"] = dbConnStr
-                        })
-                        .Build()
+                    BuildAppConfiguration(dbConnStr)
                 );
 
                 // 注册平台特定服务
@@ -111,5 +105,44 @@ public partial class App : Avalonia.Application
         if (OperatingSystem.IsAndroid())
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "db");
         return Path.Combine(AppContext.BaseDirectory, "db");
+    }
+
+    /// <summary>
+    /// 从资源中构建appsettings，避免Android平台appsetting.json不更新的问题
+    /// </summary>
+    /// <param name="dbConnStr"></param>
+    /// <returns></returns>
+    private static IConfiguration BuildAppConfiguration(string dbConnStr)
+    {
+        var builder = new ConfigurationBuilder();
+        var appSettingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+        MemoryStream? embeddedConfigStream = null;
+
+        if (File.Exists(appSettingsPath))
+        {
+            builder.SetBasePath(AppContext.BaseDirectory)
+                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
+        }
+        else
+        {
+            var configUri = new Uri("avares://AAMPTpl/appsettings.json");
+            using var stream = AssetLoader.Open(configUri);
+            if (stream != null)
+            {
+                embeddedConfigStream = new MemoryStream();
+                stream.CopyTo(embeddedConfigStream);
+                embeddedConfigStream.Position = 0;
+                builder.AddJsonStream(embeddedConfigStream);
+            }
+        }
+
+        builder.AddInMemoryCollection(new Dictionary<string, string?>
+        {
+            ["ConnectionStrings:Default"] = dbConnStr
+        });
+
+        var configuration = builder.Build();
+        embeddedConfigStream?.Dispose();
+        return configuration;
     }
 }
